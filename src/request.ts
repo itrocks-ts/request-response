@@ -17,7 +17,7 @@ type RecursiveStringArray = RecursiveString[]
 
 export type RecursiveStringObject = { [index: string]: RecursiveString | unknown }
 
-export class Request<T extends object>
+export class Request<T extends object = object>
 {
 
 	constructor(
