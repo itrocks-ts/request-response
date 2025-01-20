@@ -1,5 +1,5 @@
 
-import { Headers } from './server'
+import { Headers } from './index'
 
 export const DELETE = 'DELETE'
 export const GET    = 'GET'

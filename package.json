@@ -14,8 +14,8 @@
 		"node": ">=18"
 	},
 	"exports": {
-		"import": "./esm/server.js",
-		"require": "./cjs/server.js"
+		"import": "./esm/index.js",
+		"require": "./cjs/index.js"
 	},
 	"files": [
 		"LICENSE",
@@ -33,19 +33,19 @@
 		"http",
 		"interface",
 		"it.rocks",
-		"server"
+		"request-response"
 	],
 	"license": "ISC",
-	"name": "@itrocks/server",
+	"name": "@itrocks/request-response",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/itrocks-ts/server.git"
+		"url": "git+https://github.com/itrocks-ts/request-response.git"
 	},
 	"scripts": {
 		"build": "npm run build:cjs && npm run build:esm",
 		"build:cjs": "tsc -p tsconfig.cjs.json",
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
-	"types": "./esm/server.d.ts",
-	"version": "0.0.4"
+	"types": "./esm/index.d.ts",
+	"version": "0.0.5"
 }
