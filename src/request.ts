@@ -31,7 +31,7 @@ export class Request<T extends object = object>
 		public readonly data:       RecursiveStringObject = {},
 		public readonly files:      Files                 = {},
 		public readonly session:    Session               = {},
-		public readonly raw:        T
+		public readonly raw?:       T
 	) {}
 
 	get url()
