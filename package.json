@@ -3,9 +3,7 @@
 		"name": "Baptiste Pillot",
 		"email": "baptiste@pillot.fr"
 	},
-	"dependencies": {
-	},
-	"description": "",
+	"description": "Framework-agnostic module for crafting and handling HTTP requests and responses in TypeScript",
 	"devDependencies": {
 		"@types/node": "^22.10",
 		"typescript": "^5.6"
@@ -33,7 +31,9 @@
 		"http",
 		"interface",
 		"it.rocks",
-		"request-response"
+		"request",
+		"response",
+		"server"
 	],
 	"license": "ISC",
 	"name": "@itrocks/request-response",
@@ -47,5 +47,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/index.d.ts",
-	"version": "0.0.6"
+	"version": "0.0.7"
 }
