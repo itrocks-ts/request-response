@@ -3,7 +3,7 @@ export type Headers = Record<string, string>
 
 export { assetResponse } from './asset'
 
-export { Files, Method, Parameters, RecursiveStringObject, Request, Session } from './request'
+export { Method, Parameters, RecursiveValueObject, Request, RequestFile, Session } from './request'
 
 export { mimeTypes, utf8Types } from './mime'
 

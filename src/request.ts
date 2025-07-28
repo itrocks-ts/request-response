@@ -7,15 +7,14 @@ export const PATCH  = 'PATCH'
 export const POST   = 'POST'
 export const PUT    = 'PUT'
 
-export type Files      = Record<string, Buffer>
 export type Method     = 'DELETE' | 'GET' | 'PATCH' | 'POST' | 'PUT'
 export type Parameters = Record<string, string>
 export type Session    = Record<string, any>
 
-type RecursiveString      = RecursiveStringArray | RecursiveStringObject | string
-type RecursiveStringArray = RecursiveString[]
+type RecursiveValue      = RecursiveValueArray | RecursiveValueObject | RequestFile | string
+type RecursiveValueArray = RecursiveValue[]
 
-export type RecursiveStringObject = { [index: string]: RecursiveString | unknown }
+export type RecursiveValueObject = { [index: string]: RecursiveValue | unknown }
 
 export class Request<T extends object = object>
 {
@@ -26,11 +25,10 @@ export class Request<T extends object = object>
 		public readonly host:       string,
 		public readonly port:       number,
 		public readonly path:       string,
-		public readonly headers:    Headers               = {},
-		public readonly parameters: Parameters            = {},
-		public readonly data:       RecursiveStringObject = {},
-		public readonly files:      Files                 = {},
-		public readonly session:    Session               = {},
+		public readonly headers:    Headers              = {},
+		public readonly parameters: Parameters           = {},
+		public readonly data:       RecursiveValueObject = {},
+		public readonly session:    Session              = {},
 		public readonly raw?:       T
 	) {}
 
@@ -41,5 +39,13 @@ export class Request<T extends object = object>
 		Object.defineProperty(this, 'url', { configurable: true, enumerable: false, value, writable: true })
 		return value
 	}
+
+}
+
+export class RequestFile
+{
+
+	constructor(public filename: string, public buffer: Buffer)
+	{}
 
 }
