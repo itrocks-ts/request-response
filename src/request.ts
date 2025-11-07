@@ -14,7 +14,7 @@ export type Session    = Record<string, any>
 type RecursiveValue      = RecursiveValueArray | RecursiveValueObject | RequestFile | string
 type RecursiveValueArray = RecursiveValue[]
 
-export type RecursiveValueObject = { [index: string]: RecursiveValue | unknown }
+export type RecursiveValueObject = { [index: string]: RecursiveValue | string }
 
 export class Request<T extends object = object>
 {
