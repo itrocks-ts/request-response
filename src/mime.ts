@@ -5,6 +5,7 @@ export const mimeTypes = new Map([
 	['ico',   'image/x-icon'],
 	['jpg',   'image/jpeg'],
 	['js',    'text/javascript'],
+	['json',  'application/json'],
 	['map',   'application/json'],
 	['mjs',   'text/javascript'],
 	['png',   'image/png'],
@@ -15,4 +16,10 @@ export const mimeTypes = new Map([
 	['woff2', 'font/woff2']
 ])
 
-export const utf8Types = new Set(['application/json', 'image/svg+xml', 'text/css', 'text/javascript'])
+export const utf8Types = new Set([
+	'application/json',
+	'application/manifest+json',
+	'image/svg+xml',
+	'text/css',
+	'text/javascript'
+])
