@@ -1,12 +1,19 @@
-import { readFile, stat } from 'fs/promises'
-import { utf8Types }      from './mime'
-import { Request }        from './request'
-import { Response }       from './response'
+import { readFile }  from 'fs/promises'
+import { stat }      from 'fs/promises'
+import { utf8Types } from './mime'
+import { Request }   from './request'
+import { Response }  from './response'
 
 export async function assetResponse(request: Request, filePath: string, mimeType: string)
 {
 	const ifModified   = request.headers['if-modified-since']
-	const lastModified = new Date((await stat(filePath)).mtime)
+	const lastModified = await (async () => {
+		try { return new Date((await stat(filePath)).mtime) }
+		catch { return new Date(0) }
+	})()
+	if (!lastModified.getTime()) {
+		return new Response('', 404)
+	}
 	if (ifModified && (new Date(ifModified) >= lastModified)) {
 		return new Response('', 304)
 	}
