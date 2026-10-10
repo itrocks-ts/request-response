@@ -22,5 +22,5 @@ export async function assetResponse(request: Request, filePath: string, mimeType
 		'Content-Type': mimeType + (utf8Type ? '; charset=utf-8' : ''),
 		'Last-Modified': lastModified.toUTCString()
 	}
-	return new Response(await readFile(filePath, utf8Type ? 'utf-8' : undefined), 200, headers)
+	return new Response(await readFile(filePath, utf8Type ? 'utf-8' : null), 200, headers)
 }
